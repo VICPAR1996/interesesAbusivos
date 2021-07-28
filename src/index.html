@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Intereses abusivos</title>
+        <style>
+            body{
+                text-align: center;
+            }
+            form{
+                display: inline-block;
+            }
+            .data{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="abusiveForm">
+            
+            <div>
+                <p>¿Qué tipo de crédito pediste?</p>
+                <select id="options" required>
+                    <option value ="">Selecciona una opción</option>
+                    <option value="1">Crédito al consumo</option>
+                    <option value="2">Otros fines</option>
+                    <option value="3">Créditos a la vivienda</option>
+                </select>
+            </div>
+            
+            <div>
+                
+                <div id="1" class="data">
+                    <p>¿Podrías especificar un poco más?</p>
+                    <select id="options1">
+                        <option value ="">Selecciona una opción</option>
+                        <option value="4">Tarjeta revolving/credito</option>
+                        <option value="5">Credito - Plazo de 1 a 5 años</option>
+                        <option value="6">Credito - TAE</option>
+                    </select>
+                </div>
+                <div id="2" class="data">
+                    <p>¿Podrías especificar un poco más?</p>
+                    <select id="options2">
+                        <option value ="">Selecciona una opción</option>
+                        <option value="7">Plazo superior a 5 años</option>
+                    </select>
+                </div>
+                <div id="3" class="data">
+                    <p>¿Podrías especificar un poco más?</p>
+                    <select id="options3">
+                        <option value ="">Selecciona una opción</option>
+                        <option value="8">Plazo hasta 1 año</option>
+                        <option value="9">Plazo más de 10 años</option>
+                        <option value="10">TAE</option>
+                    </select>
+                </div>
+            </div><br>
+            <div>
+                <label for="intereses">¿Qué interés fija tu contrato?</label><br>
+                <input type="text" min="1" max="100" id="intereses" name="intereses" required> %
+            </div><br>
+
+            <div>
+                <label for="dinero">¿Cuánto dinero pediste?</label><br>
+                <input type="text" id="dinero" name="dinero" required> 
+            </div><br>
+
+            <div>
+                <label for="fecha">¿En que mes y año hiciste la contratación?</label><br>
+                <input type="month" id="fecha" name="fecha" required> 
+            </div><br>
+
+            <div>
+                <button type="submit">Calcular cuánto voy a recuperar</button>
+            </div>
+        </form>
+            
+          
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#options").on('change', function(){
+                    $(".data").hide();
+                    $("#" + $(this).val()).fadeIn(700);
+                    $("#options" + $(this).val()).prop('required',true);
+                });
+            });
+        </script>
+        <script>
+            var options = document.getElementById("options")
+            var intereses = document.getElementById("intereses")
+            var dinero = document.getElementById("dinero")
+            var fecha = document.getElementById("fecha")
+
+            switch(options.value){
+                case "1":
+                    var options1 = document.getElementById("options1")
+                    break;
+                case "2":
+                    var options2 = document.getElementById("options2")
+                    break;
+                case "3":
+                    var options3 = document.getElementById("options3")
+                    break;
+            }
+
+            var form = document.getElementById("abusiveForm");
+            form.addEventListener('submit', function(event){
+                event.preventDefault();
+                console.log(intereses.value)
+                console.log(dinero.value)
+                console.log(fecha.value)
+
+                form.innerHTML = "Puedes recuperar hasta "+dinero.value+"€ <br><br> <button>RECUPERADLO POR MI</button>"
+
+            })
+        </script>
+    </body>
+</html>
