@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head meta name="viewport" content="width=device-width, initial-scale=1.0"&>
         <meta charset="UTF-8">
         <title>Intereses abusivos</title>
         <style>
@@ -15,11 +15,13 @@
                 color: white;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                 font-weight: 300;
-                background:linear-gradient(to left bottom, #e9e9e9, #ebebeb, #d6d6d6, #b1b1b1, #505050);
+               
+                overflow-y:visible;
             }
+           
             .form-div {
-                width: 430px;
-                height: 700px;
+                width: 450px;
+                height: 800px;
                 padding: 60px 35px 35px 35px;
                 border-radius: 10px;
                 background: radial-gradient(circle, #555555, #535353, #505050, #4e4e4e, #4c4c4c);
@@ -39,15 +41,6 @@
                 /*left inset*/
                 inset -20px 0px 60px rgba(0,0,0,0.1);
             }
-
-            .logo {
-                background-image: url("PARPAS.png");
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                margin: 0 auto;
-                box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            }
             .title {
                 text-align: center;
                 font-size: 28px;
@@ -65,7 +58,7 @@
 
             .fields{
                 width: 100%;
-                padding: 30px 5px 30px 5px;
+                padding: 25px 5px 30px 5px;
             }
 
             .fields input{
@@ -86,17 +79,46 @@
                 color:white;
                 text-align: center;
                 letter-spacing: 1px;
-                background: radial-gradient(circle, #24cfaa, #26c5a3, #28bb9c, #29b294, #2aa88d);
+                background: radial-gradient(circle, #1da88a, #1ea084, #229c82, #23947b, #238d76);
                 box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             }
             .boton:hover {
-                background: radial-gradient(circle, #020024, #d17561, #d17561, #00d4ff, #00d4ff);
+                background: radial-gradient(circle, #2fdbb6, #32d6b3, #32c9a8, #36c7a7, #38bb9f);
             }
             .boton:active {
-                background: radial-gradient(circle, #020024, #d17561, #d17561, #8aff00, #8aff00);
+                background: radial-gradient(circle, #1da88a, #1ea084, #229c82, #23947b, #238d76);
             }
             .data{
                 display: none;
+            }
+            select {
+                background: transparent;
+                border: none;
+                font-size: 14px;
+                height: 30px;
+                padding: 5px;
+                width: 250px;
+                color:white;
+            }
+            select option {
+                margin: 40px;
+                background: rgba(0, 0, 0, 0.3);
+                color: black;
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+            }
+            .fields input {
+                border: none;
+                outline: none;
+                background: none;
+                font-size: 18px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: white;
+                padding: 10px 10px 10px 5px;
+            }
+            .fecha, .dinero, .intereses {
+                display: block;
+                border-bottom: 1px solid #b3b3b3;
+                margin-bottom: 30px;
             }
             
             
@@ -105,7 +127,6 @@
     <body>
         <div class="form-div">
             <form id="abusiveForm"><br>
-                <div class="logo"></div>
                 <div class="title">INTERESES ABUSIVOS</div>
                 <div class="sub-title">CALCULADORA</div>
                 <div class="fields">
@@ -147,17 +168,17 @@
                             </select>
                         </div>
                     </div><br>
-                    <div>
+                    <div class="intereses">
                         <label for="intereses">¿Qué interés fija tu contrato?</label><br>
-                        <input type="number" step="0.01" min="1" max="100" id="intereses" name="intereses" required> %
+                        <input type="number" step="0.01" min="1" max="100" id="intereses" name="intereses" required>
                     </div><br>
         
-                    <div>
+                    <div class="dinero">
                         <label for="dinero">¿Cuánto dinero pediste?</label><br>
                         <input type="number" step="0.01" id="dinero" name="dinero" required> 
                     </div><br>
         
-                    <div>
+                    <div class="fecha">
                         <label for="fecha">¿En que mes y año hiciste la contratación?</label><br>
                         <input type="month" id="fecha" name="fecha" required> 
                     </div><br>
@@ -205,7 +226,7 @@
                 console.log(dinero.value)
                 console.log(fecha.value)
 
-                form.innerHTML = "Puedes recuperar hasta "+dinero.value+"€ <br><br> <button>RECUPERADLO POR MI</button>"
+                form.innerHTML = "<a class='form-div'>Puedes recuperar hasta "+dinero.value+"€<a> <br><br> <button class='boton'>RECUPERADLO POR MI</button>"
 
             })
         </script>
