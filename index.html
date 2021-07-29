@@ -71,7 +71,7 @@
             .fields input{
                 font-size: 18px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                color: white;
+                color: black;
                 padding: 10px, 10px 10px 5px;
             }
             .boton{
@@ -149,12 +149,12 @@
                     </div><br>
                     <div>
                         <label for="intereses">¿Qué interés fija tu contrato?</label><br>
-                        <input type="text" min="1" max="100" id="intereses" name="intereses" required> %
+                        <input type="number" step="0.01" min="1" max="100" id="intereses" name="intereses" required> %
                     </div><br>
         
                     <div>
                         <label for="dinero">¿Cuánto dinero pediste?</label><br>
-                        <input type="text" id="dinero" name="dinero" required> 
+                        <input type="number" step="0.01" id="dinero" name="dinero" required> 
                     </div><br>
         
                     <div>
